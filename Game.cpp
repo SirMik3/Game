@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <unistd.h>
 #include <math.h>
-#include "movement.hpp"
 #include <experimental/random>
 using namespace std;
 
@@ -18,9 +18,11 @@ bool start;
 int main()
 {
 cout << "Game: \n";
-cout << "Made by SirMik3. \n";
-cout << "Sponsor, follow: https://github.com/SirMik3. \n";
+cout << "\033[1;31mDeveloper: \033[0m" << "\033[36mSirMik3\033[0m" << "\n";
+cout << "Sponsor, follow: \033[1;31mhttps://github.com/SirMik3.\033[0m\n";
 cout << "Click to start game.\n";
+
+
     sf::Event event;
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "Game");
     sf::CircleShape shape(50.f);
@@ -36,6 +38,7 @@ cout << "Click to start game.\n";
     tubeX = (window.getSize().x);
     tube.setPosition( tubeX, (window.getSize().y) );
 
+//window.setFramerateLimit(30);
 
     while (window.isOpen()){
         sf::Event event;
@@ -91,5 +94,5 @@ if (start){
         window.display();
     }
 
-    cout << "You Died, Your score is: \n" << score << "\n"; 
+    cout << "\033[1;31mYou Died, Your score is: \n" << score << "\033[0m\n"; 
 }
